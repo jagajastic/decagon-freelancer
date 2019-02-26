@@ -1,0 +1,11 @@
+{
+    "users": [
+      { "id": 1, "fname": "json-server", "lname": "typicode",  "email": "demo@institute.com", "password": "password", "level": 0 }
+    ],
+    "gallery": [
+      { "id": 1, "img": "test.jpg", "userId": 1 }
+    ],
+    "comment": [
+        { "id": 1, "commenter": "Josep did a greate job for me", "img": "text.jpg",  "userId": 1 }
+      ]
+  }
