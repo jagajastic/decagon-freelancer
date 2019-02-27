@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Odd JObs</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " id="heightNav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">ODD JOBS</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <button class="btn btn-success" >Login <span class="sr-only">(current)</span></button>
+                    </li>
+
+                </ul>
+            </form>
+        </div>
+    </nav>
+
+    <main class="SignupNow">
+        <div class="p-4 col-md-4 col-lg-4 container ">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Signup</strong>
+                </div>
+                <div class="p-md-4 p-sm-2 p-4">
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="Inputfname">First name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="InputFname" aria-describedby="fnameHelp"
+                                placeholder="Enter First name">
+                            <small id="fnameHelp" class="form-text text-danger" style="display:none;">This field is
+                                empty</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEmail1">Lasst name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="Inputlname" aria-describedby="lnameHelp"
+                                placeholder="Enter Last name">
+                            <small id="lnameHelp" class="form-text text-danger" style="display:none;">This field is
+                                empty</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEmail1">Email address <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-danger" style="display:none;">This field is
+                                empty</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword1">Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+                            <small id="passwordHelp" class="form-text text-danger" style="display:none;">This field is
+                                empty</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputConfrimPassword1">Confirm Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="InputConfrimPassword1" placeholder="Confirm Password">
+                            <small id="confirmPasswordHelp" class="form-text text-danger" style="display:none;">Password
+                                mismatch</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Login</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
