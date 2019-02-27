@@ -7,47 +7,239 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Odd JObs</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <h1 class="jumbotron">Welcome here <a href="singup.html">Signup ----></a></h1>
-    <p>Setup for Fron-end Done</p>
+    <nav class="navbar navbar-expand-lg navbar-light " id="heightNav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">ODD JOBS</a>
 
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Login</button>
+                    </li>
 
-    <div class="p-4 col-md-4 col-lg-4 container">
-        <div class="card">
-            <div class="card-header">
-                <strong>Login</strong>
+                </ul>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="p-4 col-md-12 col-lg-12 ">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <strong></strong>
+                                        </div>
+                                        <div class="p-md-4 p-sm-2 p-4">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                                        aria-describedby="emailHelp" placeholder="Enter email">
+                                                    <small id="emailHelp" class="form-text text-muted">We'll never
+                                                        share your email with anyone else.</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                                        placeholder="Password">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="#" class="card-link">Forgot password</a>
+                                            <a href="signup.html" class="card-link">Signup</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </nav>
+    <div class=" bgImage" id="bgImage">
+        <div class="owl-item cloned" style="width: 992px; margin-right: 0px;">
+            <div class="welcome-single-slide">
+                <div class="slide-bg-one slide-bg-overlay"></div>
+                <div class="welcome-area">
+                    <div class="container position-abs">
+                        <div class="row flex-v-center text-white">
+                            <div class="col-md-4 col-lg-6 col-sm-12 col-xs-12">
+                                <div class="welcome-text">
+                                    <h1>Develop passion for serving people.</h1>
+                                    <p>
+                                        Was certainty remaining engrossed applauded sir how discovery. Settled
+                                        opinion how enjoyed greater joy adapted too shy. Now properly surprise
+                                        expenses.
+                                    </p>
+                                    <div class="">
+                                        <a href="signup.html" class="btn btn-lg btn-success">Sign
+                                            up</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="p-md-4 p-sm-2 p-4">
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
+        </div>
+    </div>
+    <div class="col-md-8 container btn-primary pt-md-4 pb-md-4 top-area" style="background-color:#28a745;">
+        <div class="row pb-md-4">
+            <div class="col-md-8  offset-md-2 text-center mt-md-4 ">
+                <h2>Search for any body you want his service</h2>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter name" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="input-group-text" id="basic-addon2">Search</button>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                </div>
             </div>
-            <div class="card-footer">
-                <a href="index.html" class="card-link">Login</a>
-                <a href="#" class="card-link">Forgot password</a>
+        </div>
+    </div>
+    <div class="row mt-md-4 mb-md-4  pt-md-5">
+        <div class="col-md-8  offset-md-2 text-center mt-md-4">
+            <h1>
+                Over 500 + users
+            </h1>
+            <p>
+                Microsoft has spent a lot of time trying to make Windows
+                self-repairing, partly because it generally gets the blame when other
+                programs or users try to improve” it. Given that tens of thousands
+                of expert programmers have worked on the code over the past 30 years.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-md-4 mb-md-4 pt-md-5">
+        <div class="col-md-8 offset-md-2 text-center mt-md-4">
+            <h1>Our Trending Jobs</h1>
+        </div>
+    </div>
+    <div class="row jumbotron">
+        <div class="card m-md-2" style="width: 18rem;">
+            <img class="card-img-top" src="media/team-4-800x800.jpg" alt="Card image cap" style="height: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        <div class="card m-md-2" style="width: 18rem;">
+            <img class="card-img-top" src="media/team-4-800x800.jpg" alt="Card image cap" style="height: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container mt-md-5 mb-md-5">
+        <div class="row flex-v-center">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <div class="about-content xs-mb50 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <h1 class="xs-font20 mb30">Education is the foundation upon which we build our future.</h1>
+                    <p>A Google Docs scam that appears to be widespread began landing in users’ inboxes on Wednesday in
+                        what seemed to be a sophisticated phishing or malware attack. The deceptive invitation to edit
+                        a
+                        Google Doc on Google Docs with you.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                <div class="video-promo-details wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                    <div class="video-promo-content">
+                        <span data-video-id="j1S66liv1t8" class="video-area-popup mb30"><i class="fa fa-play"></i></span>
+                    </div>
+                    <img src="assest/img/about/about.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-md-5 mb-md-5 pt-md-5 ">
+        <div class="col-md-8 btn-primary offset-md-2 text-center">
+            <h2>What our Customers say</h2>
+        </div>
+    </div>
+    <div class="row container mt-md-5 mb-md-5 pt-md-5 pb-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col order-last">
+                    First, but last
+                </div>
+                <div class="col">
+                    Second, but unordered
+                </div>
+                <div class="col order-first">
+                    Third, but first
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-md-5 mb-md-5 pt-md-5 pb-md-5">
+        <div class="col-md-8 btn-primary offset-md-2 text-center">
+            <h2>FAQS</h2>
+        </div>
+    </div>
+    <div class="container p-md-4">
+        <div class="row">
+            <div class="col">
+               <h1>Dont forget to sign up</h1>
+            </div>
+            <div class="col text-center">
+               <a href="signup.html" class="btn btn-lg btn-success">Sign up</a>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
 
 
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> Ibrahim Joseph</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
