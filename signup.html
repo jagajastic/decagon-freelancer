@@ -11,33 +11,42 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " id="heightNav">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">ODD JOBS</a>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">ODD JOBS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <button class="btn btn-success" >Login <span class="sr-only">(current)</span></button>
+                        <a class="nav-link" href="index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
                 </ul>
-            </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active pl-md-2 pr-md-2" id="dashboardButton">
+                            <a class="btn btn-success">Dashboard</a>
+                        </li>
+                        <li class="nav-item active pl-md-2 pr-md-2">
+                            <a href="login.html" class="btn btn-success">Login</a>
+                        </li>
+
+                    </ul>
+
+            </div>
         </div>
     </nav>
 
@@ -82,7 +91,7 @@
                             <small id="confirmPasswordHelp" class="form-text text-danger" style="display:none;">Password
                                 mismatch</small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" id="signupButton">Submit</button>
                     </form>
                 </div>
                 <div class="card-footer">
@@ -94,10 +103,100 @@
 
 
 
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
 
+
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> Ibrahim Joseph</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+            //on submiting signup
+    $("#signupButton").on("click", function (e) {
+        //prevent default form action 
+        e.preventDefault();
+
+        // get val from input field
+        var fname = $("#InputFname").val();
+        var lname = $("#Inputlname").val();
+        var email = $("#InputEmail1").val();
+        var password = $("#InputPassword1").val();
+        var confirm_password = $("#InputConfrimPassword1").val();
+
+        // error tex for user notification
+        var error_password = document.getElementById("confirmPasswordHelp");
+        var error_lname = document.getElementById("lnameHelp");
+        var error_fname = document.getElementById("fnameHelp");
+        var error_email = document.getElementById("emailHelp");
+
+        // //for first name field if is emty
+        if (fname === "") {
+            return error_fname.style.display = "block";
+        }
+
+        //for last name field if is emty
+        if (lname === "") {
+            return error_lname.style.display = "block";
+        }
+
+        //for last name field if is emty
+        if (email === "") {
+            return error_email.style.display = "block";
+        }
+        //for password field if is emty
+        if (password !== confirm_password) {
+            return error_password.style.display = "block";
+        }
+
+        // if (password === "" && confirm_password === "") {
+        //     error_password.innerText = "Both Password field is empty";
+        //     return error_password.style.display = "block";
+        // }
+
+
+        // //get error message span
+        // var error_fname = document.getElementById("confirmPasswordHelp");
+        // error_fname.style.display = "block";
+        // //this is where i have to redirect with response as parameter                           
+        // window.location.replace("/xxx/xxx/xxx/confirm/" + response.orderId);
+
+        $.ajax({
+            url: "http://localhost:3000/users",
+            method: "POST",
+            data: {
+                "fname": fname,
+                "lname": lname,
+                "email": email,
+                "address": "",
+                "country": "",
+                "city": "",
+                "about": "",
+                "password": password,
+                "deleted": 0
+
+            }
+        }).done(function (res) {
+            // set localstorage
+            var stringified_obj = JSON.stringify(res);
+            localStorage.user = res.email;
+            localStorage.user_full = stringified_obj;
+            alert("Record creaded successfully");
+            // test if it works
+            // alert(localStorage.getItem('user'));
+            window.location.replace("index.html");
+        });
+    });
+    </script>
     <script src="js/main.js"></script>
 </body>
 
