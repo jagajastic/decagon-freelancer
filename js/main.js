@@ -158,68 +158,30 @@
         });
     });
 
-    //save the single information on local storage
-    // var save_to_localStorage = function (data) {
-    //     alert("Single information view");
-    //     // var stringified_obj_data = JSON.stringify(data);
-    //     // //save to localstorage
-    //     // localStorage.setItem("singleInfo", stringified_obj_data);
-    //     // return true;
-    // }
     // get all jobber man for landing page
     $.ajax({
         url: "http://localhost:3000/aiki?_expand=user",
         method: "GET"
     }).done(function (data) {
         var jobber_man = "";
+        var current_data = {};
         $.each(data, function (index, value) {
             jobber_man += `<div class="card m-md-2" style="width: 18rem;">`
             jobber_man += `<img class="card-img-top" src="media/team-4-800x800.jpg" alt="Card image cap" style="height: 14rem;">`
             jobber_man += `<div class="card-body">`
             jobber_man += `<h5 class="card-title">${value.user.fname + " " + value.user.lname}</h5>`
             jobber_man += `<p class="card-text">${value.desc_aiki || "I can serve You"}</p>`;
-            jobber_man += `<a href=${JSON.stringify(value)} class="btn btn-primary" id="singleView">Go somewhere</a>`;
-            jobber_man += `</div>`
-            jobber_man += `</div>`
+            jobber_man += `<a href="single.html?user_id=${value.user.id}&aiki_id=${value.id}" class="btn btn-primary" id="singleView">Go somewhere</a>`;
+            jobber_man += `</div>`;
+            jobber_man += `</div>`;
+
         });
         $("#jobberMan").append(jobber_man);
-
-        $(document).on("click", "#singleView", function (e) {
-            e.preventDefault();
-            var data = $(this).attr("href");
-            // return console.log()
-            // save on localstorage
-            localStorage.setItem("singleView", data + `"}}`);
-            localStorage.setItem("u_desc", data);
-            window.location.replace("single.html");
-        })
 
     });
 
     /// serch functionalty 
-    $("#searchJobberman").keyup(function (e) {
-        $.ajaxSetup({ cache: false });
-        $('#search').keyup(function () {
-            $('#result').html('');
-            $('#state').val('');
-            var searchField = $('#search').val();
-            var expression = new RegExp(searchField, "i");
-            $.getJSON('data.json', function (data) {
-                $.each(data, function (key, value) {
-                    if (value.name.search(expression) != -1 || value.location.search(expression) != -1) {
-                        $('#result').append('<li class="list-group-item link-class"><img src="' + value.image + '" height="40" width="40" class="img-thumbnail" /> ' + value.name + ' | <span class="text-muted">' + value.location + '</span></li>');
-                    }
-                });
-            });
-        });
-
-        $('#result').on('click', 'li', function () {
-            var click_text = $(this).text().split('|');
-            $('#search').val($.trim(click_text[0]));
-            $("#result").html('');
-        });
-    });
-});
+    
 
 
 
