@@ -1,11 +1,40 @@
 {
-    "users": [
-      { "id": 1, "fname": "json-server", "lname": "typicode",  "email": "demo@institute.com", "password": "password", "level": 0 }
-    ],
-    "gallery": [
-      { "id": 1, "img": "test.jpg", "userId": 1 }
-    ],
-    "comment": [
-        { "id": 1, "commenter": "Josep did a greate job for me", "img": "text.jpg",  "userId": 1 }
-      ]
-  }
+  "users": [
+    {
+      "fname": "Ibrahim",
+      "lname": "Joseph james",
+      "email": "ibrexbase@gmail.com",
+      "address": "Songunle estate abule onigbagbo",
+      "country": "Nigeria",
+      "city": "Lagos",
+      "about": "AMm a devoted software developer for Front en and Back",
+      "password": "password",
+      "deleted": "0",
+      "id": 1
+    }
+  ],
+  "aiki": [
+    {
+      "userId": "1",
+      "description": "qwertyuiop",
+      "amount": "963",
+      "date": "Thu Feb 28 2019 23:43:18 GMT+0100 (West Africa Standard Time)",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "description": "poiujysfghjizdxcfgvbhjkl",
+      "amount": "78465132",
+      "date": "Thu Feb 28 2019 23:43:28 GMT+0100 (West Africa Standard Time)",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "description": "I can cook for just small money",
+      "amount": "2500",
+      "date": "Fri Mar 01 2019 00:18:48 GMT+0100 (West Africa Standard Time)",
+      "id": 3
+    }
+  ],
+  "comment": []
+}
