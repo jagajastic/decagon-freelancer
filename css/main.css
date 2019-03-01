@@ -153,6 +153,7 @@ body {overflow-x: hidden;}
 
 /* sign up bg image  */
 .SignupNow {
-    background-image: url("../media/craft-male-man-890844.jpg");
+    background-image: url("../media/arttownshoe.gif");
     background-size: cover;
+    height: 100%;
 }
