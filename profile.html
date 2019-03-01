@@ -14,19 +14,21 @@
     <div class="content-h">
         <div class="left-side">
             <div class="p-5">
-                <img src="" alt="Logo">
+                <a href="index.html">
+                    <img src="" alt="Logo">
+                </a>
             </div>
             <nav>
                 <ul class="navbar-nav" id="side-nav-item">
                     <li class="nav-item li-nav active"><a href="index.html">Home</a></li>
-                    <li class="nav-item li-nav">Profile</li>
-                    <li class="nav-item li-nav" data-toggle="modal" data-target="#exampleModal">Password Reset</li>
+                    <li class="nav-item li-nav"><a href="#">Profile</a></li>
+                    <li class="nav-item li-nav"><a href="aiki.html">My Aiki</a></li>
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Password Reset </h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Aiki </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -36,14 +38,15 @@
                                         <label for="exampleInputEmail1">Current Password</label>
                                         <input type="password" class="form-control" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" placeholder="Enter Password">
-                                        <small id="emailHelp" class="form-text text-muted" style="display:none;">We'll never share your email
+                                        <small id="emailHelp" class="form-text text-muted" style="display:none;">We'll
+                                            never share your email
                                             with anyone else.</small>
                                     </div>
                                     <div class="form-group">
-                                            <label for="exampleInputEmail1">New Password</label>
-                                            <input type="password" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Enter Password">
-                                        </div>
+                                        <label for="exampleInputEmail1">New Password</label>
+                                        <input type="password" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Enter Password">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -62,14 +65,6 @@
                         User Profile
                     </h1>
                 </div>
-                <nav class="col-md-6">
-                    <ul>
-                        <li>
-                            Log out
-                        </li>
-                        <li>Profile</li>
-                    </ul>
-                </nav>
             </div>
             <div class="row">
                 <div class="container row">
@@ -80,30 +75,30 @@
                                     <div class="row justify-content-center mb-md-5">
                                         <div class="col-lg-3 order-lg-2 mb-md-5">
                                             <div class="card-profile-image">
-                                                <a href="#">
+                                                <a href="#" id="embedImage">
                                                     <img src="media/team-4-800x800.jpg" class="rounded-circle round-circle">
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body pt-0 pt-md-4">
-                                        <div class="text-center">
-                                            <h3>
-                                                Jessica Jones<span class="font-weight-light">, 27</span>
-                                            </h3>
-                                            <div class="h5 font-weight-300">
+                                        <div class="text-center" id="profileData">
+                                            <!-- <h3>
+                                                Jessica Jones
+                                            </h3> -->
+                                            <!-- <div class="h5 font-weight-300">
                                                 <i class="ni location_pin mr-2"></i>Bucharest, Romania
-                                            </div>
-                                            <div class="h5 mt-4">
+                                            </div> -->
+                                            <!-- <div class="h5 mt-4">
                                                 <i class="ni business_briefcase-24 mr-2"></i>Solution Manager -
                                                 Creative Tim Officer
                                             </div>
                                             <div>
                                                 <i class="ni education_hat mr-2"></i>University of Computer Science
-                                            </div>
-                                            <hr class="my-4">
-                                            <button class="btn btn-danger">Delete Account</button>
+                                            </div> -->
+                                            <!-- <hr class="my-4"> -->
                                         </div>
+                                        <button class="btn btn-danger" id="deleteMyAccountNow">Delete Account</button>
                                     </div>
                                 </div>
                             </div>
@@ -115,46 +110,48 @@
                                                 <h3 class="mb-0">My account</h3>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <a href="#!" class="btn btn-sm btn-primary" id="enableInputField">Edit Profile</a>
+                                                <a href="#!" class="btn btn-sm btn-warning" id="enableInputField">Edit
+                                                    Profile</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body" style="background: #f7fafc;">
-                                        <form>
+                                        <form id="editFormrecord">
                                             <h6 class="heading-small text-muted mb-4">User information</h6>
                                             <div class="pl-lg-4">
                                                 <div class="row">
                                                     <div class="col-lg-6">
-                                                        <div class="form-group focused">
-                                                            <label class="form-control-label" for="input-username">Username</label>
-                                                            <input type="text" id="input-username " class="form-control form-control-alternative"
-                                                                placeholder="Username" value="lucky.jesse" disabled>
+                                                        <div class="form-group focused" id="loadedDisplayname">
+                                                            <label class="form-control-label" for="input-username">Display
+                                                                name</label>
+                                                            <!-- <input type="text" id="input-username" class="form-control form-control-alternative"
+                                                                placeholder="Username" value="lucky.jesse" disabled> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group" id="loadedEmail">
                                                             <label class="form-control-label" for="input-email">Email
                                                                 address</label>
-                                                            <input type="email" id="input-email" class="form-control form-control-alternative"
-                                                                placeholder="jesse@example.com" disabled>
+                                                            <!-- <input type="email" id="input-email" class="form-control form-control-alternative"
+                                                                placeholder="jesse@example.com" disabled> -->
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-6">
-                                                        <div class="form-group focused">
+                                                        <div class="form-group focused" id="loadedFname">
                                                             <label class="form-control-label" for="input-first-name">First
                                                                 name</label>
-                                                            <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                                                                placeholder="First name" value="Lucky" disabled>
+                                                            <!-- <input type="text" id="input-first-name" class="form-control form-control-alternative"
+                                                                placeholder="First name" value="Lucky" disabled> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
-                                                        <div class="form-group focused">
+                                                        <div class="form-group focused" id="loadLname">
                                                             <label class="form-control-label" for="input-last-name">Last
                                                                 name</label>
-                                                            <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                                                                placeholder="Last name" value="Jesse" disabled>
+                                                            <!-- <input type="text" id="input-last-name" class="form-control form-control-alternative"
+                                                                placeholder="Last name" value="Jesse" disabled> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -165,35 +162,41 @@
                                             <div class="pl-lg-4">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div class="form-group focused">
+                                                        <div class="form-group focused" id="loadAddress">
                                                             <label class="form-control-label" for="input-address">Address</label>
-                                                            <input id="input-address" class="form-control form-control-alternative"
+                                                            <!-- <input id="input-address" class="form-control form-control-alternative"
                                                                 placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                                                                type="text" disabled>
+                                                                type="text" disabled> -->
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-4">
-                                                        <div class="form-group focused">
+                                                        <div class="form-group focused" id="loadedCity">
                                                             <label class="form-control-label" for="input-city">City</label>
-                                                            <input type="text" id="input-city" class="form-control form-control-alternative"
-                                                                placeholder="City" value="New York" disabled>
+                                                            <!-- <input type="text" id="input-city" class="form-control form-control-alternative"
+                                                                placeholder="City" value="New York" disabled> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
-                                                        <div class="form-group focused">
+                                                        <div class="form-group focused" id="loadedCountry">
                                                             <label class="form-control-label" for="input-country">Country</label>
-                                                            <input type="text" id="input-country" class="form-control form-control-alternative"
-                                                                placeholder="Country" value="United States" disabled>
+                                                            <!-- <input type="text" id="input-country" class="form-control form-control-alternative"
+                                                                placeholder="Country" value="United States" disabled> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label class="form-control-label" for="input-country">Postal
-                                                                code</label>
-                                                            <input type="number" id="input-postal-code" class="form-control form-control-alternative"
-                                                                placeholder="Postal code" disabled>
+                                                        <div class="form-group focused" id="loadedPassword">
+                                                            <label class="form-control-label" for="input-country">Password</label>
+                                                            <!-- <input type="password" id="input-password" class="form-control form-control-alternative"
+                                                                    placeholder="Country" value="United States" disabled> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group focused" id="fileUploadEditDiv">
+                                                            <label class="form-control-label" for="input-file">File
+                                                                upload</label>
+                                                            <input type="file" class="form-control-file" id="fileUploadEdit">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -202,11 +205,17 @@
                                             <!-- Description -->
                                             <h6 class="heading-small text-muted mb-4">About me</h6>
                                             <div class="pl-lg-4">
-                                                <div class="form-group focused">
+                                                <div class="form-group focused" id="loadedAboutme">
                                                     <label>About Me</label>
-                                                    <textarea rows="4" class="form-control form-control-alternative"
-                                                        placeholder="A few words about you ..." disabled>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                                                    <!-- <textarea rows="4" class="form-control form-control-alternative"
+                                                        placeholder="A few words about you ..." disabled>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea> -->
                                                 </div>
+                                            </div>
+                                            <div id="loadedID">
+                                                <!-- <input type="text" id="loadedid"> -->
+                                                <button id="updateButton" class="btn btn-primary" disabled>
+                                                    Update
+                                                </button>
                                             </div>
                                         </form>
                                     </div>

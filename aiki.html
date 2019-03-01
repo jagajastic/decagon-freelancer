@@ -120,6 +120,170 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
+    <script>
+        
+    // add aiki for the customers too see
+    $("#saveAiki").on("click", function (e) {
+        e.preventDefault();
+
+        //get description
+        var aiki_description = $("#aikiDescription").val();
+        var aiki_amount = $("#aikiAmount").val();
+
+        //get user
+        var user_full = localStorage.getItem("user_id");
+        var login_user_email = parseInt(user_full);
+        // return console.log(login_user_email);
+        // time stamp
+        var at_what_time = new Date();
+
+        // check if field is empty
+        var description_error = $("#descriptAikiaHelp");
+        var amount_error = $("#amountAikiaHelp");
+
+        //do the check 
+        if (aiki_description === "") {
+            return description_error.show();
+        }
+
+        if (aiki_amount === "") {
+            return amount_error.show();
+        }
+
+        //on focus hide the error message
+        // $("#descriptAikiaHelp").focus(function(e) {
+        //     e.preventDefault();
+        //     description_error.style.display = "none";
+        // });
+        // alert(login_user_email);
+
+        $.ajax({
+            url: "http://localhost:3000/aiki",
+            method: "POST",
+            data: {
+                userId: parseInt(login_user_email),
+                desciption: aiki_description,
+                amount: aiki_amount,
+                date: at_what_time
+            }
+        }).done(function (resp) {
+            alert("Aiki Added successfully")
+            location.reload();
+        });
+    });
+
+     // list of aiki for 
+     var array_of_aiki = [];
+
+// get all Aiki an populate the tables
+$.ajax({
+    url: "http://localhost:3000/aiki",
+    method: "GET"
+}).done(function (data) {
+    var append_to_aiki_table = "";
+    $.each(data, function (index, value) {
+        array_of_aiki.push(value);
+        append_to_aiki_table += `<tr>
+        <th scope="row">${value.id || ""}</th>
+        <td>${value.desciption || ""}</td>
+        <td>=N=${value.amount || ""}</td>
+        <td style="display:none;">${value.userId || ""}</td>
+        <td>
+        <button class="btn btn-success pl-2" data-toggle="modal" data-target="#${value.id}" >View</button>
+        <button class="btn btn-primary pl-2 pr-2" data-toggle="modal" data-target="#${value.id}">Edit</button>
+        <a href="http://localhost:3000/aiki/${value.id}" class="btn btn-danger pl-2" >Delete</a></td>
+    </tr>`
+    });
+
+    $("#adminView").append(append_to_aiki_table);
+    // looping tru for view and edit button
+    var view_edit_modal = "";
+    $.each(array_of_aiki, function (index, value) {
+        view_edit_modal += `
+        <div class="modal fade" id="${value.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" class="form-control" id="EditaikiDescription" style="border:none;"
+                aria-describedby="emailHelp"  value="${value.desciption}" placeholder="Enter What service you can offer">
+            <small id="EdescriptAikiaHelp" class="form-text text-danger "
+                style="display:none;">This field is empty.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Amount</label>
+            <input type="number" value="${value.amount}" class="form-control" id="EditaikiAmount" style="border:none;
+                aria-describedby="emailHelp" placeholder="Enter and for how much: Price in Nigeria Naira" >
+                <small id="EamountAikiaHelp" class="form-text text-danger"
+                style="display:none;">This field is empty</small>
+        </div>
+        <p></p>
+        <input type="text" value="${value.userId}" class="form-control" id="EdituserIdAikiAmount" style="display:none;">
+        <input type="text" value="${value.id}" class="form-control" id="AikiIdAmount" style="display:none;">
+        <input type="text" value="${value.date}" class="form-control" id="dateAikiId" style="display:none;">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="userEditAikiDashboard">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>         
+        `
+    });
+
+    $("#adminView").append(view_edit_modal);
+
+
+    /// edit aiki user from dashboard
+    $("#userEditAikiDashboard").on("click", function (e) {
+        e.preventDefault();
+
+        var desc_aiki = $("#EditaikiDescription").val();
+        var amt_aiki = $("#EditaikiAmount").val();
+        var usr_aiki = $("#EdituserIdAikiAmount").val();
+        var id_aiki = $("#AikiIdAmount").val();
+        var date_crtd = $("#dateAikiId").val();
+        // alert(date_crtd);
+
+        //grab the error element get it ready for display
+        var EdescriptAikiaHelp = $("#EdescriptAikiaHelp");
+        var EamountAikiaHelp = $("#EamountAikiaHelp");
+
+        //check if empty
+        if (desc_aiki === "") {
+            return EdescriptAikiaHelp.show();
+        }
+
+        if (amt_aiki === "") {
+            return EamountAikiaHelp.show();
+        }
+
+        $.ajax({
+            url: `http://localhost:3000/aiki/${id_aiki}`,
+            method: "PUT",
+            data: {
+                desciption: desc_aiki,
+                userId: usr_aiki,
+                amount: amt_aiki,
+                data: date_crtd
+            }
+        }).done(function (resp) {
+            alert("Record updated successfully");
+            location.reload();
+        });
+
+    });
+});
+
+    </script>
     <script src="js/main.js"></script>
 </body>
 

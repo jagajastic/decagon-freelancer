@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Odd JObs</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">ODD JOBS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active pl-md-2 pr-md-2" id="dashboardButton">
+                            <a class="btn btn-success">Dashboard</a>
+                        </li>
+                        <li class="nav-item active pl-md-2 pr-md-2">
+                            <a href="login.html" class="btn btn-success">Login</a>
+                        </li>
+
+                    </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="SignupNow">
+        <div class="p-4 col-md-4 col-lg-4 container ">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Login</strong>
+                </div>
+                <div class="p-md-4 p-sm-2 p-4">
+                    <form id="loginForm">
+                        <div class="alert alert-danger" role="alert" id="incorrectCredential" style="display:none;">
+                            Incorrect Username and Password
+                        </div>
+                        <div class="form-group">
+                            <label for="InputEmail1">Email address <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="loginEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                            <small id="loginEmailHelp" class="form-text text-danger" style="display:none;">This field
+                                is
+                                empty</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword1">Password <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="loginPassword1" placeholder="Password">
+                            <small id="loginpasswordHelp" class="form-text text-danger" style="display:none;">This
+                                field is
+                                empty</small>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="SubmitLogin">Submit</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="signup.html" class="card-link">Signup</a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="page-footer font-small blue pt-4">
+
+
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="https://mdbootstrap.com/education/bootstrap/"> Ibrahim Joseph</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </main>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        
+    //sign in 
+    $("#SubmitLogin").on("click", function (e) {
+        e.preventDefault();
+
+        
+    // on focus hide error text for email
+    $("#loginEmail1").focus(function (e) {
+        e.preventDefault();
+        //error field for password
+        var error_login_password = document.getElementById("incorrectCredential");
+
+        // error text
+        var error_login_email = document.getElementById("loginEmailHelp");
+        error_login_email.style.display = "none";
+        error_login_password.style.display = "none";
+    });
+
+    $("#loginPassword1").focus(function (e) {
+        e.preventDefault();
+        //error field for password
+        var error_login_credential = document.getElementById("incorrectCredential");
+        // error text
+        var error_login_password = document.getElementById("loginpasswordHelp");
+        error_login_password.style.display = "none";
+        error_login_credential.style.display = "none";
+    });
+
+        // //user input
+        var login_email = $("#loginEmail1").val();
+        var login_password = $("#loginPassword1").val();
+
+        // error field for email
+        var error_login_email = document.getElementById("loginEmailHelp");
+
+        //error field for password
+        var error_login_password = document.getElementById("loginpasswordHelp");
+
+        //error field for password
+        var error_login_password = document.getElementById("incorrectCredential");
+
+        // acheck if empty
+        if (login_email === "") {
+            return error_login_email.style.display = "block";
+        }
+        // check if empty
+        if (login_password === "") {
+            return error_login_password.style.display = "block";
+        }
+        $.ajax({
+            url: "http://localhost:3000/users",
+            method: "GET",
+
+        }).done(function (data) {
+            $.each(data, function (key, value) {
+                if (value.email === login_email && value.password === login_password) {
+                    alert("login Success");
+                    var user_detail = value.email;
+                    var user_id = value.id;
+                    localStorage.setItem("user_full", user_detail);
+                    localStorage.setItem("user_id", user_id);
+                    window.location.replace("index.html");
+                } else {
+                    error_login_password.style.display = "block";
+                }
+            });
+        });
+
+    });
+
+});
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
