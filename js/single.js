@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    
     //get user id and aiki id
     var n = new URLSearchParams(window.location.search);
     n.has('user_id');
