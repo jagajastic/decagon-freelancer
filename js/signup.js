@@ -18,6 +18,7 @@ $("#signupButton").on("click", function (e) {
     var error_lname = document.getElementById("lnameHelp");
     var error_fname = document.getElementById("fnameHelp");
     var error_email = document.getElementById("emailHelp");
+    var error_login_password = document.getElementById("incorrectCredential");
 
 
       // hide error message on focus
@@ -41,6 +42,7 @@ $("#signupButton").on("click", function (e) {
     $("#InputEmail1").focus(function (e) {
         e.preventDefault();
         //error field for password
+        error_login_password.style.display = "none";
         var error_fnam = document.getElementById("emailHelp");
         error_fnam.style.display = "none";
     });
@@ -83,35 +85,43 @@ $("#signupButton").on("click", function (e) {
         return error_password_confirm.style.display = "block";
     }
 
-    // if (password === "" && confirm_password === "") {
-    //     error_password.innerText = "Both Password field is empty";
-    //     return error_password.style.display = "block";
-    // }
-
-
+    var error_login_password = document.getElementById("incorrectCredential");
+    // check if email already exist
     $.ajax({
-        url: "http://localhost:3000/users",
-        method: "POST",
-        data: {
-            "fname": fname,
-            "lname": lname,
-            "email": email,
-            "address": "",
-            "country": "",
-            "city": "",
-            "about": "",
-            "password": password,
-            "deleted": 0
-
-        }
-    }).done(function (res) {
-        // set localstorage
-        var stringified_obj = JSON.stringify(res);
-        localStorage.user = res.email;
-        localStorage.user_full = stringified_obj;
-        alert("Record creaded successfully");
-        // test if it works
-        // alert(localStorage.getItem('user'));
-        window.location.replace("index.html");
+        url: `http://localhost:3000/users?email=${email}`,
+        method: "GET"
+    }).done(function(data){
+    var data_length = data.length;
+    if(data_length >= 1){
+        return error_login_password.style.display = "block";
+    }else{
+        $.ajax({
+            url: "http://localhost:3000/users",
+            method: "POST",
+            data: {
+                "fname": fname,
+                "lname": lname,
+                "email": email,
+                "address": "",
+                "country": "",
+                "city": "",
+                "about": "",
+                "password": password,
+                "deleted": 0
+    
+            }
+        }).done(function (res) {
+            // set localstorage
+            var stringified_obj = JSON.stringify(res);
+            localStorage.user = res.email;
+            localStorage.user_full = stringified_obj;
+            alert("Record creaded successfully");
+            // test if it works
+            // alert(localStorage.getItem('user'));
+            window.location.replace("index.html");
+        });
+    }
     });
+
+
 });
