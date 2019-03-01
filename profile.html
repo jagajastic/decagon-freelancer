@@ -231,6 +231,17 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
+    <script>
+        $("#dashboardButton").on("click", function (e) {
+        e.preventDefault();
+        var user = (localStorage.getItem("user_full"));
+        if (user) {
+            window.location.replace("profile.html");
+        } else {
+            alert("Sign in first");
+        }
+    });
+    </script>
     <script src="js/main.js"></script>
 </body>
 
