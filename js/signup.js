@@ -2,13 +2,12 @@
 $("#signupButton").on("click", function (e) {
     //prevent default form action 
     e.preventDefault();
-
-
   
     // get val from input field
     var fname = $("#InputFname").val();
     var lname = $("#Inputlname").val();
     var email = $("#InputEmail1").val();
+    var phone_number = $("#phoneNumber").val();
     var password = $("#InputPassword1").val();
     var confirm_password = $("#InputConfrimPassword1").val();
 
@@ -19,6 +18,7 @@ $("#signupButton").on("click", function (e) {
     var error_fname = document.getElementById("fnameHelp");
     var error_email = document.getElementById("emailHelp");
     var error_login_password = document.getElementById("incorrectCredential");
+    var error_phone_number = document.getElementById("phoneNumberHelp");
 
 
       // hide error message on focus
@@ -46,7 +46,17 @@ $("#signupButton").on("click", function (e) {
         var error_fnam = document.getElementById("emailHelp");
         error_fnam.style.display = "none";
     });
+   
+    // on focus hide error text for phone number
+    $("#phoneNumber").focus(function (e) {
+        e.preventDefault();
+        //error field for password
+        error_phone_number.style.display = "none";
+        var error_fnam = document.getElementById("emailHelp");
+        error_fnam.style.display = "none";
+    });
 
+    // on focus hide error
     $("#InputPassword1").focus(function (e) {
         e.preventDefault();
         //error field for password
@@ -72,15 +82,21 @@ $("#signupButton").on("click", function (e) {
         return error_lname.style.display = "block";
     }
 
-    //for last name field if is emty
+    //for email field if is emty
     if (email === "") {
         return error_email.style.display = "block";
     }
+    
+    //for phone number field if is emty
+    if (phone_number === "") {
+        return error_phone_number.style.display = "block";
+    }
+
     //for password field if is emty
     if (password === "") {
         return error_password.style.display = "block";
     }
-    //for password field if is emty
+    //for password confirmation field if is emty
     if (password !== confirm_password) {
         return error_password_confirm.style.display = "block";
     }
@@ -102,10 +118,12 @@ $("#signupButton").on("click", function (e) {
                 "fname": fname,
                 "lname": lname,
                 "email": email,
+                "phone_number": phone_number,
                 "address": "",
                 "country": "",
                 "city": "",
                 "about": "",
+                "location": "",
                 "password": password,
                 "deleted": 0
     

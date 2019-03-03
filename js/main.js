@@ -1,5 +1,5 @@
 (function ($) {
-
+    //check if user is login or not 
     $("#dashboardButton").on("click", function (e) {
         e.preventDefault();
         var user = (localStorage.getItem("user_full"));
@@ -17,12 +17,8 @@
     });
 
 
-
-
-
-
     //profile page
-    // check if user is already sign in before you take hi  to sign in page
+    // check if user is already sign in before you take him  to sign in page
     var user_exist = localStorage.getItem("user_full");
     if (user_exist) {
         $.ajax({
@@ -101,6 +97,7 @@
         var edit_about = $("#editAboutMe").val();
         var edit_id = $("#loadedid").val();
         var edit_password = $("#input-password").val();
+        var phone_number = $("#phone-number").val();
         var edit_file = "";
         // $('#fileUploadEdit').change(function () {
         //     console.dir(this.files[0].mozFullPath)
@@ -170,7 +167,7 @@
             jobber_man += `<img class="card-img-top" src="media/team-4-800x800.jpg" alt="Card image cap" style="height: 14rem;">`
             jobber_man += `<div class="card-body">`
             jobber_man += `<h5 class="card-title">${value.user.fname + " " + value.user.lname}</h5>`
-            jobber_man += `<p class="card-text">${value.desc_aiki || "I can serve You"}</p>`;
+            jobber_man += `<p class="card-text">${value.description || "I can serve You"}</p>`;
             jobber_man += `<a href="single.html?user_id=${value.user.id}&aiki_id=${value.id}" class="btn btn-primary" id="singleView">Go somewhere</a>`;
             jobber_man += `</div>`;
             jobber_man += `</div>`;
@@ -181,7 +178,7 @@
     });
 
     /// serch functionalty 
-    
+
 
 
 
