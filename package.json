@@ -4,7 +4,7 @@
   "description": "Freelancer App",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch db.json"
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
