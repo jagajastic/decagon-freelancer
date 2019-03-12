@@ -76,7 +76,7 @@
                                         <div class="col-lg-3 order-lg-2 mb-md-5">
                                             <div class="card-profile-image">
                                                 <a href="#" id="embedImage">
-                                                    <img src="media/team-4-800x800.jpg" class="rounded-circle round-circle">
+                                                    <img src="#" class="rounded-circle round-circle" id="profilePic">
                                                 </a>
                                             </div>
                                         </div>
@@ -240,6 +240,31 @@
         } else {
             alert("Sign in first");
         }
+    });
+
+
+    // function to handle the file upload
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#profilePic').attr('src', e.target.result);
+                console.log(e.target);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    // grap file from selected file from the file button
+    $("#fileUploadEdit").on("change", function(e){
+        e.preventDefault();
+        readURL(this);
+        var file = $("#fileUploadEdit").val();
+        
+        // grab the image file then display it for preview 
+        var user_img = $("#profilePic").attr("src");
+        // console.log(user_img);
+
     });
     </script>
     <script src="js/main.js"></script>

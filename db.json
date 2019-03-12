@@ -4,31 +4,25 @@
       "fname": "Ibrahim",
       "lname": "Joseph",
       "email": "ibrexbase@gmail.com",
-      "phone_number": "2348036798575",
-      "address": "",
-      "country": "",
-      "city": "",
-      "about": "",
+      "phone_number": "+2348036798575",
+      "address": "Songunle estate abule onigbagbo",
+      "country": "Nigeria",
+      "city": "Lagos",
+      "about": "Am a Frontend Design (UI/UX)",
       "location": "",
       "password": "password",
       "deleted": "0",
       "id": 1
-    },
-    {
-      "fname": "Joel",
-      "lname": "Joseph",
-      "email": "josephibrahi@gmail.com",
-      "phone_number": "2348036798575",
-      "address": "",
-      "country": "",
-      "city": "",
-      "about": "",
-      "location": "",
-      "password": "password",
-      "deleted": "0",
-      "id": 2
     }
   ],
-  "aiki": [],
+  "aiki": [
+    {
+      "description": "i can serve you for two weeks for just ",
+      "userId": "1",
+      "amount": "500",
+      "date": "Thu Mar 07 2019 22:41:06 GMT+0100 (West Africa Standard Time)",
+      "id": 1
+    }
+  ],
   "admin": []
 }

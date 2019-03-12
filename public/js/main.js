@@ -1,10 +1,11 @@
+
 (function ($) {
     //check if user is login or not 
     $("#dashboardButton").on("click", function (e) {
         e.preventDefault();
         var user = (localStorage.getItem("user_full"));
         if (user) {
-            window.location.replace("profile.html");
+            window.location.replace("dashboard.html");
         } else {
             alert("Sign in first");
         }
@@ -19,7 +20,8 @@
 
     //profile page
     // check if user is already sign in before you take him  to sign in page
-    var user_exist = localStorage.getItem("user_full");
+    var user_exist = localStorage.getItem("user");
+    // console.log(user_exist);
     if (user_exist) {
         $.ajax({
             url: `http://localhost:3000/users?email=${user_exist}`,
@@ -42,6 +44,7 @@
             var about_me = "";
             var id = "";
             var password = "";
+            var phone = "";
 
             display_name += `<input type="text" id="input-username" class="form-control form-control-alternative"
             placeholder="${data.fname + ' ' + data.lname}" value="${data.fname + ' ' + data.lname}" disabled>`;
@@ -63,6 +66,8 @@
             id += `<input type="text" id="loadedid" value="${data.id}" style="display:none;">`;
             password += `<input type="password" id="input-password" class="form-control form-control-alternative"
             placeholder="Country" value="${data.password}" disabled>`;
+            phone += `<input type="text" id="phone-number" class="form-control form-control-alternative"
+            placeholder="Country" value="+${data.phone_number}" disabled>`;
 
             $("#loadedPassword").append(password);
             $("#loadedID").append(id);
@@ -75,13 +80,18 @@
             $("#loadedEmail").append(email);
             $("#loadedDisplayname").append(display_name);
             $("#profileData").append(profile_data);
+            $("#loadedNumber").append(phone);
         });
     }
 
     // trigger delete button
     $("#deleteMyAccountNow").on("click", function (e) {
         e.preventDefault();
-        alert("Delete record");
+        iziToast.error({
+            title: 'Delete',
+            message: 'Record Deleted Successfully?',
+            position: "center"
+        });
 
     });
 
@@ -141,16 +151,21 @@
                 fname: edit_fname,
                 lname: edit_lname,
                 email: edit_email,
+                phone_number: phone_number,
                 address: edit_address,
                 country: edit_country,
                 city: edit_city,
                 about: edit_about,
+                location: "",
                 password: edit_password,
                 deleted: 0
             }
         }).done(function (resp) {
-            alert("record updated successfully");
-            location.reload();
+            return iziToast.success({
+                title: 'info',
+                message: 'record updated successfully?',
+                position: "topRight"
+            });
 
         });
     });
@@ -167,8 +182,8 @@
             jobber_man += `<img class="card-img-top" src="media/team-4-800x800.jpg" alt="Card image cap" style="height: 14rem;">`
             jobber_man += `<div class="card-body">`
             jobber_man += `<h5 class="card-title">${value.user.fname + " " + value.user.lname}</h5>`
-            jobber_man += `<p class="card-text">${value.description || "I can serve You"}</p>`;
-            jobber_man += `<a href="single.html?user_id=${value.user.id}&aiki_id=${value.id}" class="btn btn-primary" id="singleView">Go somewhere</a>`;
+            jobber_man += `<p class="card-text">${value.description || "I can serve You"} <span class="text-danger">N${value.amount}</span></p>`;
+            jobber_man += `<a href="single.html?user_id=${value.user.id}&aiki_id=${value.id}" class="btn btn-primary" id="singleView">View</a>`;
             jobber_man += `</div>`;
             jobber_man += `</div>`;
 
