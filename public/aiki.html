@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Odd Jobs - Aiki</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/profile.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="node_modules/izitoast/dist/css/iziToast.min.css">
+</head>
+
+<body>
+    <!-- Sidenav -->
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+        <div class="container-fluid">
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+                aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Brand -->
+            <a class="navbar-brand pt-0" href="./index.html">
+                <img src="./assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            </a>
+            <!-- User -->
+            <ul class="nav align-items-center d-md-none">
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="ni ni-bell-55"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right"
+                        aria-labelledby="navbar-default_dropdown_1">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="./assets/img/theme/team-1-800x800.jpg">
+                            </span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome!</h6>
+                        </div>
+                        <a href="./examples/profile.html" class="dropdown-item">
+                            <i class="ni ni-single-02"></i>
+                            <span>My profile</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#!" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="./index.html">
+                                <img src="./assets/img/brand/blue.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                                aria-label="Toggle sidenav">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <ul class="navbar-nav  verticalMenuLeft" id="verticalMenuLeft">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="location.html">
+                            <i class="ni ni-pin-3 text-orange"></i> Location
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aiki.html">
+                            <i class="ni ni-bullet-list-67 text-red"></i>My Aiki
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="ni ni-key-25 text-info"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+                <!-- Divider -->
+                <hr class="my-3">
+                <!-- Heading -->
+                <h6 class="navbar-heading text-muted">User Guide</h6>
+                <!-- Navigation -->
+                <ul class="navbar-nav mb-md-3 verticalMenuLeft">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="ni ni-spaceship"></i> Getting started
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- Top navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Dashboard</a>
+                <!-- Form -->
+                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                    <div class="form-group mb-0">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" placeholder="Search" type="text">
+                        </div>
+                    </div>
+                </form>
+                <!-- User -->
+                <ul class="navbar-nav align-items-center d-none d-md-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
+                                </span>
+                                <div class="media-body ml-2 d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                            <div class=" dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome!</h6>
+                            </div>
+                            <a href="./examples/profile.html" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>My profile</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+            <div class="container-fluid">
+                <h1>User Dashboard </h1>
+            </div>
+        </div>
+        <div class="header  pb-8 pt-2 pt-md-4">
+            <div class="right-side pl-3 pt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container row">
+                        <div class="container-fluid mt--7">
+                            <div class="container-fluid mb-5">
+                                <!-- <h1>Tell me something i dont know aboout bootstrap</h1> -->
+                            </div>
+                            <!-- put some thing here -->
+                            <div class="row mt-5">
+                                <div class="col-xl-12 mb-5 mb-xl-0">
+                                    <div class="card shadow">
+                                        <div class="card-header border-0">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <h3 class="mb-0">Aiki created</h3>
+                                                </div>
+                                                <div class="col text-right">
+                                                    <a href="#!" class="btn btn-sm btn-primary">Add Aiki</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <!-- Projects table -->
+                                            <table class="table align-items-center table-flush">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">Serial number</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Amount</th>
+                                                        <th scope="col">Message</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="adminView">
+                                                    <!-- append aiki -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+    <script>
+
+        // add aiki for the customers too see
+        $("#saveAiki").on("click", function (e) {
+            e.preventDefault();
+
+            //get description
+            var aiki_description = $("#aikiDescription").val();
+            var aiki_amount = $("#aikiAmount").val();
+
+            //get user
+            var user_full = localStorage.getItem("user_id");
+            var login_user_email = parseInt(user_full);
+            // return console.log(login_user_email);
+            // time stamp
+            var at_what_time = new Date();
+
+            // check if field is empty
+            var description_error = $("#descriptAikiaHelp");
+            var amount_error = $("#amountAikiaHelp");
+
+            //do the check 
+            if (aiki_description === "") {
+                return description_error.show();
+            }
+
+            if (aiki_amount === "") {
+                return amount_error.show();
+            }
+
+            //on focus hide the error message
+            // $("#descriptAikiaHelp").focus(function(e) {
+            //     e.preventDefault();
+            //     description_error.style.display = "none";
+            // });
+            // alert(login_user_email);
+
+            $.ajax({
+                url: "http://localhost:3000/aiki",
+                method: "POST",
+                data: {
+                    userId: parseInt(login_user_email),
+                    description: aiki_description,
+                    amount: aiki_amount,
+                    date: at_what_time
+                }
+            }).done(function (resp) {
+                alert("Aiki Added successfully")
+                location.reload();
+            });
+        });
+
+        // list of aiki for 
+        var array_of_aiki = [];
+
+        // get all Aiki an populate the tables
+        $.ajax({
+            url: "http://localhost:3000/aiki",
+            method: "GET"
+        }).done(function (data) {
+            console.log(data);
+            var append_to_aiki_table = "";
+            $.each(data, function (index, value) {
+                array_of_aiki.push(value);
+                append_to_aiki_table += `<tr>
+        <th scope="row">${value.id || ""}</th>
+        <td>${value.description || ""}</td>
+        <td>=N=${value.amount || ""}</td>
+        <td style="display:none;">${value.userId || ""}</td>
+        <td>ddd</td>
+        <td>
+        <button class="text-center btn-sm btn-success pl-2" data-toggle="modal" data-target="#${value.id}" >View</button>
+        <button class="text-center btn-sm btn-primary pl-2 pr-2" data-toggle="modal" data-target="#${value.id}">Edit</button>
+        <a href="http://localhost:3000/aiki/${value.id}" class="btn-sm btn-danger text-center pl-2" >Delete</a></td>
+    </tr>`
+            });
+
+            $("#adminView").append(append_to_aiki_table);
+
+            // looping tru for view and edit button
+            var view_edit_modal = "";
+            $.each(array_of_aiki, function (index, value) {
+                view_edit_modal += `
+        <div class="modal fade" id="${value.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Description</label>
+            <input type="text" class="form-control" id="EditaikiDescription" style="border:none;"
+                aria-describedby="emailHelp"  value="${value.description}" placeholder="Enter What service you can offer">
+            <small id="EdescriptAikiaHelp" class="form-text text-danger "
+                style="display:none;">This field is empty.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Amount</label>
+            <input type="number" value="${value.amount}" class="form-control" id="EditaikiAmount" style="border:none;
+                aria-describedby="emailHelp" placeholder="Enter and for how much: Price in Nigeria Naira" >
+                <small id="EamountAikiaHelp" class="form-text text-danger"
+                style="display:none;">This field is empty</small>
+        </div>
+        <p></p>
+        <input type="text" value="${value.userId}" class="form-control" id="EdituserIdAikiAmount" style="display:none;">
+        <input type="text" value="${value.id}" class="form-control" id="AikiIdAmount" style="display:none;">
+        <input type="text" value="${value.date}" class="form-control" id="dateAikiId" style="display:none;">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="userEditAikiDashboard">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>         
+        `
+            });
+
+            $("#adminView").append(view_edit_modal);
+
+
+            /// edit aiki user from dashboard
+            $("#userEditAikiDashboard").on("click", function (e) {
+                e.preventDefault();
+
+                var desc_aiki = $("#EditaikiDescription").val();
+                var amt_aiki = $("#EditaikiAmount").val();
+                var usr_aiki = $("#EdituserIdAikiAmount").val();
+                var id_aiki = $("#AikiIdAmount").val();
+                var date_crtd = $("#dateAikiId").val();
+                // alert(date_crtd);
+
+                //grab the error element get it ready for display
+                var EdescriptAikiaHelp = $("#EdescriptAikiaHelp");
+                var EamountAikiaHelp = $("#EamountAikiaHelp");
+
+                //check if empty
+                if (desc_aiki === "") {
+                    return EdescriptAikiaHelp.show();
+                }
+
+                if (amt_aiki === "") {
+                    return EamountAikiaHelp.show();
+                }
+
+                $.ajax({
+                    url: `http://localhost:3000/aiki/${id_aiki}`,
+                    method: "PUT",
+                    data: {
+                        description: desc_aiki,
+                        userId: usr_aiki,
+                        amount: amt_aiki,
+                        date: date_crtd
+                    }
+                }).done(function (resp) {
+                    alert("Record updated successfully");
+                    location.reload();
+                });
+
+            });
+        });
+
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

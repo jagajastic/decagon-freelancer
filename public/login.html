@@ -8,6 +8,7 @@
     <title>Odd JObs</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="node_modules/izitoast/dist/css/iziToast.min.css">
 </head>
 
 <body>
@@ -102,80 +103,88 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/popper.min.js"></script>
+    <script src="node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
 
-        
-    //sign in 
-    $("#SubmitLogin").on("click", function (e) {
-        e.preventDefault();
 
-        
-    // on focus hide error text for email
-    $("#loginEmail1").focus(function (e) {
-        e.preventDefault();
-        //error field for password
-        var error_login_password = document.getElementById("incorrectCredential");
+            //sign in 
+            $("#SubmitLogin").on("click", function (e) {
+                e.preventDefault();
 
-        // error text
-        var error_login_email = document.getElementById("loginEmailHelp");
-        error_login_email.style.display = "none";
-        error_login_password.style.display = "none";
-    });
 
-    $("#loginPassword1").focus(function (e) {
-        e.preventDefault();
-        //error field for password
-        var error_login_credential = document.getElementById("incorrectCredential");
-        // error text
-        var error_login_password = document.getElementById("loginpasswordHelp");
-        error_login_password.style.display = "none";
-        error_login_credential.style.display = "none";
-    });
+                // on focus hide error text for email
+                $("#loginEmail1").focus(function (e) {
+                    e.preventDefault();
+                    //error field for password
+                    var error_login_password = document.getElementById("incorrectCredential");
 
-        // //user input
-        var login_email = $("#loginEmail1").val();
-        var login_password = $("#loginPassword1").val();
+                    // error text
+                    var error_login_email = document.getElementById("loginEmailHelp");
+                    error_login_email.style.display = "none";
+                    error_login_password.style.display = "none";
+                });
 
-        // error field for email
-        var error_login_email = document.getElementById("loginEmailHelp");
+                $("#loginPassword1").focus(function (e) {
+                    e.preventDefault();
+                    //error field for password
+                    var error_login_credential = document.getElementById("incorrectCredential");
+                    // error text
+                    var error_login_password = document.getElementById("loginpasswordHelp");
+                    error_login_password.style.display = "none";
+                    error_login_credential.style.display = "none";
+                });
 
-        //error field for password
-        var error_login_password = document.getElementById("loginpasswordHelp");
+                // //user input
+                var login_email = $("#loginEmail1").val();
+                var login_password = $("#loginPassword1").val();
 
-        //error field for password
-        var error_login_password = document.getElementById("incorrectCredential");
+                // error field for email
+                var error_login_email = document.getElementById("loginEmailHelp");
 
-        // acheck if empty
-        if (login_email === "") {
-            return error_login_email.style.display = "block";
-        }
-        // check if empty
-        if (login_password === "") {
-            return error_login_password.style.display = "block";
-        }
-        $.ajax({
-            url: "http://localhost:3000/users",
-            method: "GET",
+                //error field for password
+                var error_login_password = document.getElementById("loginpasswordHelp");
 
-        }).done(function (data) {
-            $.each(data, function (key, value) {
-                if (value.email === login_email && value.password === login_password) {
-                    alert("login Success");
-                    var user_detail = value.email;
-                    var user_id = value.id;
-                    localStorage.setItem("user_full", user_detail);
-                    localStorage.setItem("user_id", user_id);
-                    window.location.replace("index.html");
-                } else {
-                    error_login_password.style.display = "block";
+                //error field for password
+                var error_login_password = document.getElementById("incorrectCredential");
+
+                // acheck if empty
+                if (login_email === "") {
+                    return error_login_email.style.display = "block";
                 }
+                // check if empty
+                if (login_password === "") {
+                    return error_login_password.style.display = "block";
+                }
+                $.ajax({
+                    url: "http://localhost:3000/users",
+                    method: "GET",
+
+                }).done(function (data) {
+                    $.each(data, function (key, value) {
+                        if (value.email === login_email && value.password === login_password) {
+                            localStorage.setItem("user_full", user_detail);
+                            localStorage.setItem("user_id", user_id);
+                            var user_detail = value.email;
+                            var user_id = value.id;
+                            iziToast.success({
+                                title: 'Login',
+                                message: 'Login Successfully',
+                                position: "topRight",
+                                onClosing: function () {
+                                    window.location.replace("index.html");
+                                },
+                                timeout: 1000,
+                            });
+                        } else {
+                            error_login_password.style.display = "block";
+                        }
+                    });
+                });
+
             });
+
         });
-
-    });
-
-});
     </script>
     <script src="js/main.js"></script>
 </body>
